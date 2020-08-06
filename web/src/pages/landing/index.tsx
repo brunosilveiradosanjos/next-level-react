@@ -4,6 +4,7 @@ import landingImg from '../../assets/images/landing.svg'
 import studyIcon from '../../assets/images/icons/study.svg'
 import giveClasses from '../../assets/images/icons/give-classes.svg'
 import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg'
+import { Link } from 'react-router-dom' //substitumos tag a para nao caregar o elemento toda vez que a pag carrega
 import './styles.css'
 
 function Landing() {
@@ -23,15 +24,15 @@ function Landing() {
 
                 <div className="buttons-container">
 
-                    <a href="#home" className="study">
+                    <Link to="/study" className="study">
                         <img src={studyIcon} alt="Estudar" />
                         Estudar
-                    </a>
+                    </Link>
 
-                    <a href="#home" className="give-classes">
+                    <Link to="/give-classes" className="give-classes">
                         <img src={giveClasses} alt="Dar Aulas" />
                         Ensinar
-                    </a>
+                    </Link>
 
                 </div>
 
