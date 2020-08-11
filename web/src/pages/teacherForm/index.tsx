@@ -1,4 +1,5 @@
 import React, { useState, FormEvent } from 'react';
+import { useHistory } from 'react-router-dom'
 import PageHeader from '../../components/pageHeader';
 import Input from '../../components/input';
 import warningIcon from '../../assets/images/icons/warning.svg';
@@ -8,6 +9,8 @@ import './styles.css'
 import api from '../../service/api';
 
 function TeacherForm() {
+    const history = useHistory();
+
     // useState, principio da imutabilidade, 
     // nao podemos alterar o valor de uma variavel
     // sempre criamos outra variavel com as devidas atualizacoes
@@ -21,7 +24,7 @@ function TeacherForm() {
     const [scheduleItems, setScheduleItems] = useState([
 
         {
-            week_day: 0,
+            week_day: 7,
             from: '',
             to: ''
         }
@@ -65,6 +68,8 @@ function TeacherForm() {
             schedule: scheduleItems
         }).then(() => {
             alert('Cadastro realizado com sucesso!')
+            // Envia usuário para landing page
+            history.push('/');
         }).catch(() => {
             alert('Erro no cadastro!')
         })
